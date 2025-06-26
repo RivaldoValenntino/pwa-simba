@@ -1,0 +1,19 @@
+image: php:7.2
+
+stages:
+  - dev
+
+deploy_development:
+  type: dev
+  environment:
+    name: development
+    url: 165.22.111.13:30022
+  script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$keydevelopmentchrdo")
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - ssh -p 12244 development@165.22.111.13 "cd /home/development/public_html/tirta-mangutama/work-order-pwa-tirta-mangutama && git pull origin development && docker compose down && docker compose up -d --build && exit"
+  only:
+    - development

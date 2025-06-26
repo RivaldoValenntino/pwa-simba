@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html {
+  font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+#index-body {
+  background:
+    linear-gradient(180deg, #0b2e59 0%, #205295 100%),
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.3) 5%,
+      rgba(255, 255, 255, 0) 25%
+    );
+  background-blend-mode: overlay;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* #index-body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 10%,
+    transparent 50%
+  );
+  opacity: 0.8;
+  z-index: 0;
+} */
+
+#btn-masuk {
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--progress-color);
+}
+progress::-moz-progress-bar {
+  background-color: var(--progress-color);
+}
+
+div#reader__scan_region {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+textarea {
+  resize: none;
+}
+
+#reader img:first-of-type {
+  display: none !important;
+}
+#reader #reader__scan_region img:first-of-type {
+  display: block !important;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+}
+
+@layer base {
+  .btn-eye-password {
+    @apply absolute text-xl text-gray-600 -translate-y-1/2 right-3 top-1/2 bottom-1/2;
+  }
+}
